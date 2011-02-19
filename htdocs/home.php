@@ -1,4 +1,0 @@
-<?php
-
-
-RequestHandler::respond('home');
