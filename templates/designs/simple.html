@@ -1,0 +1,6 @@
+{extends "designs/dog.html"}
+
+{*block "dog-menu-applications"}
+	{$dwoo.parent}					
+	<a href="/local_app" class="app local_app {tif MICS::getApp() == 'local_app' ? 'open'}">Local App</a>
+{/block*}

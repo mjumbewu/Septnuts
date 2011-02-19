@@ -1,0 +1,3 @@
+<?php
+
+UsersRequestHandler::handleRequest();

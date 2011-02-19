@@ -1,0 +1,2 @@
+[18-Feb-2011 17:21:45] PHP Parse error:  syntax error, unexpected T_ARRAY, expecting ')' in /var/mics/sites/septa.mics.me/classes/Septa_Route.class.php on line 25
+[18-Feb-2011 17:21:48] PHP Parse error:  syntax error, unexpected T_ARRAY, expecting ')' in /var/mics/sites/septa.mics.me/classes/Septa_Route.class.php on line 25
