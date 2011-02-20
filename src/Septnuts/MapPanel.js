@@ -171,7 +171,15 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 				,icon: this.markerImgs[icon]
 			});
 			
-			busMarker.setMap(this.map.map);
+			var busInfoWindow = new google.maps.InfoWindow({
+			    content: 'Toward ' + (busData.destination != '' ? busData.destination : 'unknown desitnation') + ', reported ' + (busData.Offset == '0' ? 'just now.' : busData.Offset + ' minutes ago.')
+			});
+			
+			google.maps.event.addListener(busMarker, 'click', function() {
+			    busInfoWindow.open(this.map,busMarker);
+			});
+			
+            busMarker.setMap(this.map.map);
 			
 			this.busMarkers.push(busMarker);
 		
