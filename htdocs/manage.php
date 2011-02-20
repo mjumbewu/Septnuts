@@ -1,3 +1,0 @@
-<?php
-
-ManageRequestHandler::handleRequest();
