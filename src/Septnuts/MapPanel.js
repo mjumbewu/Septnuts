@@ -81,6 +81,24 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 		// store loaded route
 		this.loadedRoute = route;
 		
+		// set the vocabulary, dependent on the type of route
+		switch (route.get('RouteType')) {
+		    case 0:
+		        this.vehicleName = 'Trolley';
+		        this.vehiclesName = 'Trollies';
+		        break;
+		        
+		    case 3:
+		        this.vehicleName = 'Bus';
+		        this.vehiclesName = 'Buses';
+		        break;
+		        
+		    default:
+		        this.vehicleName = 'Vehicle';
+		        this.vehiclesName = 'Vehicles';
+		        break;
+		}
+		
   		// set toolbar title
   		this.getDockedComponent('mapToolbar').setTitle('Route '+route.get('RouteShortName'));
   		
@@ -109,7 +127,7 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 	,loadBusData: function() {
 	
 		// mask map during load
-		this.getEl().mask('Locating buses&hellip;', 'x-mask-loading');
+		this.getEl().mask('Locating ' + this.vehiclesName + '&hellip;', 'x-mask-loading');
 		
 		// fire JSONP request
 		Ext.util.JSONP.request({
@@ -141,7 +159,7 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 		// alert user if no buses found
 		if(data.bus.length == 0)
 		{
-			Ext.Msg.alert('No buses found', 'No buses could be located on this route right now');
+			Ext.Msg.alert('No ' + this.vehiclesName + ' found', 'No ' + this.vehiclesName + ' could be located on this route right now');
 			return;
 		}
 		
@@ -167,7 +185,7 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 			
 			var busMarker = new google.maps.Marker({
 				position: new google.maps.LatLng(busData.lat, busData.lng)
-				,title: 'Some bus'
+				,title: 'Some ' + this.vehiclesName
 				,icon: this.markerImgs[icon]
 			});
 			
