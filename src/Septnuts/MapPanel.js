@@ -193,12 +193,14 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 			
 			// attach the bus info bubble to the marker when clicked
 			var busInfoWindow = this.busInfoWindow;
+			var vehicleName = this.vehicleName;
 			google.maps.event.addListener(busMarker, 'click', function() {
+			    vehcString = vehicleName + ' ' + busData.label
 			    destString = 'Toward ' + (busData.destination != '' ? busData.destination : 'unknown desitnation');
 			    timeString = 'reported ' + (busData.Offset == '0' ? 'just now.' : busData.Offset + ' minutes ago.');
 			    
 			    busInfoWindow.close();
-			    busInfoWindow.setContent(destString + ', ' + timeString);
+			    busInfoWindow.setContent(vehcString + ' ' + destString + ', ' + timeString);
 			    busInfoWindow.open(this.map,busMarker);
 			});
 			
