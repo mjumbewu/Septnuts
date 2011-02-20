@@ -38,7 +38,9 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 				,maprender: this.onMapRender
 			}
 		});
-
+		
+		// create the bus info bubble
+		this.busInfoWindow = new google.maps.InfoWindow();
 
 		// populate panel docks
 		this.dockedItems = [{
@@ -189,11 +191,14 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 				,icon: this.markerImgs[icon]
 			});
 			
-			var busInfoWindow = new google.maps.InfoWindow({
-			    content: 'Toward ' + (busData.destination != '' ? busData.destination : 'unknown desitnation') + ', reported ' + (busData.Offset == '0' ? 'just now.' : busData.Offset + ' minutes ago.')
-			});
-			
+			// attach the bus info bubble to the marker when clicked
+			var busInfoWindow = this.busInfoWindow;
 			google.maps.event.addListener(busMarker, 'click', function() {
+			    destString = 'Toward ' + (busData.destination != '' ? busData.destination : 'unknown desitnation');
+			    timeString = 'reported ' + (busData.Offset == '0' ? 'just now.' : busData.Offset + ' minutes ago.');
+			    
+			    busInfoWindow.close();
+			    busInfoWindow.setContent(destString + ', ' + timeString);
 			    busInfoWindow.open(this.map,busMarker);
 			});
 			
