@@ -87,7 +87,7 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 		switch (route.get('RouteType')) {
 		    case 0:
 		        this.vehicleName = 'Trolley';
-		        this.vehiclesName = 'Trollies';
+		        this.vehiclesName = 'Trolleys';
 		        break;
 		        
 		    case 3:
