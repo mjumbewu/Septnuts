@@ -10,22 +10,22 @@ Septnuts.MapPanel = Ext.extend(Ext.Panel, {
 		// configure marker images 
 		this.markerImgs = {
 			bus_yellow: new google.maps.MarkerImage(
-				'img/bus_yellow.png'
-				, new google.maps.Size(30, 24)
+				'img/BusThree.png'
+				, new google.maps.Size(32, 32)
 				, new google.maps.Point(0, 0)
-				, new google.maps.Point(15, 12)
+				, new google.maps.Point(15, 31)
 			)
 			,bus_blue: new google.maps.MarkerImage(
-				'img/bus_blue.png'
-				, new google.maps.Size(30, 24)
+				'img/BusTwo.png'
+				, new google.maps.Size(32, 32)
 				, new google.maps.Point(0, 0)
-				, new google.maps.Point(15, 12)
+				, new google.maps.Point(15, 31)
 			)
 			,bus_red: new google.maps.MarkerImage(
-				'img/bus_red.png'
-				, new google.maps.Size(30, 24)
+				'img/BusOne.png'
+				, new google.maps.Size(32, 32)
 				, new google.maps.Point(0, 0)
-				, new google.maps.Point(15, 12)
+				, new google.maps.Point(15, 31)
 			)
 		};
 	
